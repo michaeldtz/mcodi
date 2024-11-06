@@ -11,6 +11,7 @@ RUN usermod --login mcodi openvscode-server
 RUN usermod -a -G users mcodi
 RUN mkdir /codeworkspace
 RUN chown mcodi /codeworkspace
+RUN chown 777 /codeworkspace
 
 USER mcodi
 
