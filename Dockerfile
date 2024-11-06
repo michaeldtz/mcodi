@@ -8,6 +8,7 @@ RUN apt-get install -y python3-pip
 RUN apt-get install -y python3-venv
 
 RUN usermod --login mcodi openvscode-server 
+RUN usermod -a -G users mcodi
 RUN mkdir /codeworkspace
 RUN chown mcodi /codeworkspace
 
