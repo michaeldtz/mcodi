@@ -9,9 +9,9 @@ RUN apt-get install -y python3-venv
 
 RUN usermod --login mcodi openvscode-server 
 RUN usermod -a -G users mcodi
-RUN mkdir /codeworkspace
-RUN chown mcodi /codeworkspace
-RUN chown 777 /codeworkspace
+RUN mkdir /home/codespace
+RUN chown mcodi /home/codespace
+RUN chown 777 /home/codespace
 
 USER mcodi
 
@@ -40,4 +40,4 @@ RUN \
     # Install the $exts
     && for ext in "${exts[@]}"; do ${OPENVSCODE} --install-extension "${ext}"; done
 
-ENTRYPOINT ["/bin/sh", "-c", "exec ${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server --default-folder /codeworkspace --host 0.0.0.0 --without-connection-token \"${@}\"", "--"]
+ENTRYPOINT ["/bin/sh", "-c", "exec ${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server --default-folder /home/codespace --host 0.0.0.0 --without-connection-token \"${@}\"", "--"]
