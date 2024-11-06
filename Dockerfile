@@ -8,8 +8,10 @@ RUN apt-get install -y python3-pip
 RUN apt-get install -y python3-venv
 
 RUN usermod --login mcodi openvscode-server 
-USER mcodi
+RUN mkdir /codeworkspace
+RUN chown mcodi /codeworkspace
 
+USER mcodi
 
 ENV OPENVSCODE_SERVER_ROOT="/home/.openvscode-server"
 ENV OPENVSCODE="${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server"
