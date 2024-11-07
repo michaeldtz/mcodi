@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN apt-get install -y python3-venv
+RUN apt-get install -y python3-opencv
 
 RUN usermod --login mcodi openvscode-server 
 RUN usermod -a -G users mcodi
