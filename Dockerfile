@@ -41,4 +41,6 @@ RUN \
     # Install the $exts
     && for ext in "${exts[@]}"; do ${OPENVSCODE} --install-extension "${ext}"; done
 
+
+EXPOSE 3000 8501 8502 8511 8512 8521 8522
 ENTRYPOINT ["/bin/sh", "-c", "exec ${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server --default-folder /home/codespace --host 0.0.0.0 --without-connection-token \"${@}\"", "--"]
